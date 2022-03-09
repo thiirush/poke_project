@@ -3,7 +3,7 @@ import axios from "axios";
 import Loader from "components/Loader";
 import PokemonCard from "components/PokemonCard";
 import { useLoading } from "hooks/useLoading";
-import { GetServerSideProps } from "next/types";
+import { GetStaticProps } from "next/types";
 import { useState } from "react";
 import { api } from "services/api";
 
@@ -52,7 +52,7 @@ export default function Home({ pokemonData, next }: HomeProps) {
 
   return (
     <Box as="section" py="40px">
-      {isLoading && <Loader />}
+      <Loader isLoading={isLoading} />
 
       <Container maxW="container.md">
         <Heading mb="8" as="h1">
@@ -95,7 +95,7 @@ export default function Home({ pokemonData, next }: HomeProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const { data } = await api.get(`pokemon-form/?limit=100`);
 
   const getAllPokemonInfo = async (result) => {

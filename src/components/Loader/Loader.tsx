@@ -1,8 +1,11 @@
 import { Flex, Spinner } from "@chakra-ui/react";
+import { LoaderProps } from "./Loader.types";
 
-export function Loader() {
+export function Loader({ isLoading }: LoaderProps) {
+  const loaderShow = isLoading ? "flex" : "none";
   return (
     <Flex
+      display={loaderShow}
       alignItems="center"
       justifyContent="center"
       sx={{

@@ -79,11 +79,13 @@ export default function SinglePokemon({ pokemonData }: SinglePokemonProps) {
     <Box
       width="100%"
       height="100%"
+      mt="4"
       sx={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        minHeight: "400px",
       }}
     >
       <Link passHref href="/">
@@ -91,7 +93,7 @@ export default function SinglePokemon({ pokemonData }: SinglePokemonProps) {
           <img src="/ic_left_arrow.svg" alt="" /> Back
         </Flex>
       </Link>
-      <SimpleGrid columns={[1, 2]}>
+      <SimpleGrid columns={[1, 1, 1, 2]}>
         <Box borderRadius="6px 0px 0px 6px" bgColor="gray.100" padding="36px">
           <Text fontSize="12px" textTransform="uppercase">
             Nº {pokemonNumber}
